@@ -95,7 +95,7 @@ cout<<"          \\______/\n";
  cout << "\n[~] Enjoy max Health ,Armour ,Attacks :) ";
 
  int ptr,health,nhealth;
- int max = 999 , pmax = 100 , dmax = 991;
+ int max = 999 , pmax = 100 , dmax = 985;
  HANDLE game = OpenProcess(PROCESS_VM_OPERATION|PROCESS_VM_READ|PROCESS_VM_WRITE,FALSE,pid);
  if(game)
 	if(ReadProcessMemory(game,(void *)VirtualAddress(),&ptr,4,NULL))
@@ -104,9 +104,9 @@ cout<<"          \\______/\n";
 			WriteProcessMemory(game,(void *)(ptr+0x34),&pmax,4,NULL); // Melee  Attack %
 			WriteProcessMemory(game,(void *)(ptr+0x38),&pmax,4,NULL); // Ranged Attack %
 			WriteProcessMemory(game,(void *)(ptr+0x3c),&pmax,4,NULL); // Magic  Attack %
-			WriteProcessMemory(game,(void *)(ptr+0x40),&max,4,NULL);  // Melee  Damage
-			WriteProcessMemory(game,(void *)(ptr+0x44),&max,4,NULL);  // Ranged Damage 
-			WriteProcessMemory(game,(void *)(ptr+0x48),&max,4,NULL);  // Armour
+			WriteProcessMemory(game,(void *)(ptr+0x40),&max,4,NULL);  // Armour
+			WriteProcessMemory(game,(void *)(ptr+0x44),&max,4,NULL);  // Melee Damage 
+			WriteProcessMemory(game,(void *)(ptr+0x48),&max,4,NULL);  // Ranged Damage 
 			WriteProcessMemory(game,(void *)(ptr+0x4c),&dmax,4,NULL); // Magic Damage
 			WriteProcessMemory(game,(void *)(ptr+0x50),&max,4,NULL);  // Health
 				}
